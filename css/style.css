@@ -1,0 +1,157 @@
+/** NAVBAR **/
+
+#navbar {
+	width: 281px;
+}
+
+body.hide-search > #navbar {
+	display: none;
+}
+
+.navbar {
+	margin-bottom: 0;
+	border-radius: 4px;
+	height: 40px;
+}
+
+.navbar .navbar-inner {
+	padding: 0 15px;
+}
+
+.navbar .navbar-search .icon-search {
+	position: absolute;
+	top: 5px;
+	left: 10px;
+}
+
+.navbar .navbar-search input[type="text"] {
+	padding-left: 25px;
+	box-shadow: none;
+	padding-right: 25px;
+	margin-bottom: 0;
+}
+
+.navbar .navbar-search .close {
+	position: absolute;
+	right: 10px;
+	top: 5px;
+}
+
+#navbar.navbar .nav > li > a {
+	padding: 10px 0;
+}
+
+/** BOOKMARKS **/
+
+#main {
+	position: relative;
+	width: 281px;
+	max-height: 400px;
+	overflow: hidden;
+	overflow-y: auto;
+	margin: 10px 0 1px;
+}
+#main.noscroll {
+	overflow: hidden !important;
+}
+
+body.hide-search > #main {
+	margin-top: 1px;
+}
+
+#main ul {
+	position: absolute;
+	width: 276px;
+	left: 100%;
+	top: 0;
+	box-sizing: border-box;
+	display: none;
+	margin-left: 5px;
+}
+#main.noscroll ul {
+	width: 281px;
+	margin: 0;
+}
+
+ul#bookmarks,
+ul#bookmarks-search {
+	margin: 0;
+}
+
+#main.noscroll ul {
+	margin-left: 0;
+}
+
+#main > ul {
+	left: 0;
+	-webkit-transition: margin 200ms;
+	transition: margin 200ms;
+	display: block;
+}
+#main > ul.hide {
+	display: none;
+}
+
+#main > ul li a {
+	background-image: url('chrome://favicon/');
+	background-repeat: no-repeat;
+	background-position: 15px 5px;
+	white-space: normal;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding-left: 35px;
+}
+
+#main > ul li.parent > a,
+#main > ul li.back > a {
+	background-image: none;
+	padding-left: 15px;
+	margin-left: -15px;
+	margin-right: -15px;
+	font-weight: bold;
+}
+
+#main ul li.parent.empty > a {
+	pointer-events: none;
+}
+#main ul li.parent.empty > a > .icon-chevron-right {
+	opacity: 0.25;
+}
+
+ul li.break {
+	padding: 5px 0;
+}
+
+ul li.break > hr {
+	margin: 0;
+}
+
+/** SCROLLBARS **/
+
+::-webkit-scrollbar {
+	width: 5px;
+}
+::-webkit-scrollbar-thumb {
+	background: #333;
+	border-radius: 25px;
+}
+
+/** EXTRA CRAP **/
+
+hr.soft {
+	height: 1px;
+	background-image: -webkit-linear-gradient(left, transparent, rgba(0, 0, 0, .1), transparent);
+	background-image: -moz-linear-gradient(left, transparent, rgba(0, 0, 0, .1), transparent);
+	background-image: -ms-linear-gradient(left, transparent, rgba(0, 0, 0, .1), transparent);
+	background-image: -o-linear-gradient(left, transparent, rgba(0, 0, 0, .1), transparent);
+	border: 0;
+}
+
+.nav.nav-list a {
+	color: #333;
+	border-radius: 4px;
+}
+
+.nav > li > a.hide {
+	display: none;
+}

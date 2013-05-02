@@ -1,0 +1,57 @@
+.modal {
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: -102%;
+	margin: 0;
+	width: 281px;
+	border-color: #fff;
+	border-radius: 0;
+	box-shadow: none;
+}
+.modal.fade {
+	top: 0;
+	opacity: 1;
+	-webkit-transition: all 200ms;
+	transition: all 200ms;
+}
+
+.modal.fade.in {
+	top: 0;
+	left: 0;
+	right: 0;
+}
+
+.modal-header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	background: #EEE;
+	border: none;
+	border-radius: 4px;
+}
+
+.modal-body {
+	position: absolute;
+	top: 60px;
+	bottom: 0;
+	left: 0;
+	right: 1px;
+	padding: 0 15px;
+}
+
+.modal-body .nav-list > li > a {
+	padding: 3px;
+}
+
+.modal-footer {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.modal ::-webkit-scrollbar-thumb {
+	background: #999;
+}
