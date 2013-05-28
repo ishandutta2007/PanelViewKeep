@@ -4,6 +4,11 @@
 
 @media all and (max-width: 850px) {
 	
+	/* hide black bar */
+	#gb {
+		display: none;
+	}
+	
 	#keep_options {
 		display: block;
 		position: absolute;
