@@ -1,7 +1,7 @@
 
-chrome.storage.local.get([ 'disableMenus' ], function(items) {
+chrome.storage.local.get([ 'contextMenu' ], function(items) {
 
-	if (!items.disableMenus || (items.disableMenus && items.disableMenus == 'false')) {
+	if (items.contextMenu && items.contextMenu == true) {
 
 		var contexts = [ 'all', 'page', 'frame', 'selection', 'link', 'editable', 'image', 'video', 'audio' ];
 		var parent = chrome.contextMenus.create({
@@ -19,7 +19,7 @@ chrome.storage.local.get([ 'disableMenus' ], function(items) {
 		});
 
 		/** sad paul wishes this code would work in panel mode **/
-
+		
 		// utility function to handle creating new note inside Keep
 		function putIntoKeep() {
 			if (KEEP_TAB_ID === 0) {
@@ -42,6 +42,17 @@ chrome.storage.local.get([ 'disableMenus' ], function(items) {
 			contexts: contexts,
 			onclick: function(info, tab) {
 				KEEP_OBJ = '';
+				goToKeep();
+				putIntoKeep();
+			}
+		});
+		
+		chrome.contextMenus.create({
+			title: 'Copy page URL to Keep',
+			parentId: parent,
+			contexts: contexts,
+			onclick: function(info, tab) {
+				KEEP_OBJ = tab.url;
 				goToKeep();
 				putIntoKeep();
 			}
@@ -81,25 +92,8 @@ chrome.storage.local.get([ 'disableMenus' ], function(items) {
 				putIntoKeep();
 			}
 		});
-
+		
 		/** end sad unusable code **/
-
-		chrome.contextMenus.create({
-			type: 'separator',
-			parentId: parent,
-			contexts: contexts
-		});
-
-		chrome.contextMenus.create({
-			title: 'Options',
-			parentId: parent,
-			contexts: contexts,
-			onclick: function(info, tab) {
-				chrome.tabs.create({
-					url: chrome.extension.getURL('options.html')
-				}, function(tab) {});
-			}
-		});
-
+		
 	}
 });
