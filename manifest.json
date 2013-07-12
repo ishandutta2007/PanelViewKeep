@@ -1,7 +1,7 @@
 {
-	"name": "Google Keep Extension",
-	"description": "Panelized extension for Google Keep.",
-	"version": "1.5",
+	"name": "Panel View for Google Keep",
+	"description": "Panelized extension for Google Keep",
+	"version": "1.7",
 	"background": {
 		"scripts": [
 			"js/background.js",
@@ -10,9 +10,8 @@
 		]
 	},
 	"browser_action": {
-		"default_icon": "img/icon_128.png"
+		"default_icon": "img/icon_16.png"
 	},
-	"options_page": "options.html",
 	"icons": {
 		"128": "img/icon_128.png",
 		"48": "img/icon_48.png",
@@ -26,18 +25,29 @@
 	],
 	"content_scripts": [
 		{
-			"all_frames": false,
+			"js": [
+				"js/jquery-1.7.2.min.js"
+			],
+			"matches": [
+				"https://drive.google.com/keep/*"
+			],
+			"run_at": "document_start"
+		},
+		{
 			"css": [
-				"css/contentstyle.css"
+				"css/keep-style.css"
 			],
 			"js": [
-				"js/contentscript.js"
+				"js/keep-script.js"
 			],
 			"matches": [
 				"https://drive.google.com/keep/*"
 			],
 			"run_at": "document_end"
 		}
+	],
+	"web_accessible_resources": [
+		"options.html"
 	],
 	"manifest_version": 2
 }
