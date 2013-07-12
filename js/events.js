@@ -17,7 +17,11 @@ chrome.tabs.onRemoved.addListener(function(tabId, removeInfo) {
 chrome.windows.onCreated.addListener(function(window) {
 	chrome.windows.get(window.id, { populate: true }, function(window) {
 		if (window.tabs[0].url.indexOf(KEEP_URL) != -1) {
-			KEEP_TAB_ID = window.tabs[0].id;
+			if (KEEP_WINDOW_TYPE == 'panel') {
+				KEEP_TAB_ID = 0;
+			} else {
+				KEEP_TAB_ID = window.tabs[0].id;
+			}
 			KEEP_WINDOW_ID = window.id;
 		}
 	});
