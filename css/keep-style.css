@@ -97,18 +97,34 @@ a.gbtc_send[data-type="normal"] > span {
 .modal-dialog-content {
 	overflow: auto;
 	max-height: 200px;
+	font-size: 13px;
+}
+
+.modal-dialog-content hr {
+	margin: 30px 0;
+	border: 0;
+	background: #ccc;
+	height: 1px;
 }
 
 .modal-dialog-buttons {
 	text-align: right;
 	margin-top: 16px;
+	display: none;
+	background: #f8f8f8;
+	border-top: 1px solid #e5e5e5;
+}
+
+.modal-dialog-buttons .pull-left {
+	float: left;
+}
+.modal-dialog-buttons .pull-right {
+	float: right;
 }
 
 .modal-dialog-buttons button {
 	border-radius: 2px;
-	background-color: #f5f5f5;
-	background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
-	background-image: linear-gradient(top,#f5f5f5,#f1f1f1);
+	background-color: #fff;
 	border: 1px solid rgba(0,0,0,0.1);
 	color: #444;
 	cursor: default;
@@ -121,12 +137,12 @@ a.gbtc_send[data-type="normal"] > span {
 	outline: 0;
 	padding: 0 8px;
 }
+.modal-dialog-buttons button:first-child {
+	margin: 0;
+}
 .modal-dialog-buttons button:hover,
 .modal-dialog-buttons button:active {
 	box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-	background-color: #f8f8f8;
-	background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
-	background-image: linear-gradient(top,#f8f8f8,#f1f1f1);
 	border: 1px solid #c6c6c6;
 	color: #333;
 }
@@ -155,6 +171,10 @@ a.gbtc_send[data-type="normal"] > span {
 
 @media all and (max-width: 450px) {
 	
+	#li_changelog {
+		display: none;
+	}
+	
 	.modal-dialog {
 		width: 100%;
 		border: none;
@@ -163,6 +183,13 @@ a.gbtc_send[data-type="normal"] > span {
 		margin: 0;
 		top: 0;
 		bottom: 0;
+		padding: 0;
+	}
+	
+	.modal-dialog-title {
+		padding: 15px 0 10px;
+		border-bottom: 1px solid #e5e5e5;
+		margin: 0 20px;
 	}
 	
 	.modal-dialog-title-close {
@@ -172,18 +199,20 @@ a.gbtc_send[data-type="normal"] > span {
 	.modal-dialog-content {
 		position: absolute;
 		top: 78px;
-		bottom: 75px;
-		right: 42px;
-		left: 42px;
+		bottom: 60px;
+		right: 0;
+		left: 20px;
 		overflow: auto;
 		max-height: 100%;
 	}
 	
 	.modal-dialog-buttons {
+		display: block;
 		position: absolute;
-		bottom: 30px;
-		left: 42px;
-		right: 42px;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 15px 20px;
 	}
 	
 }

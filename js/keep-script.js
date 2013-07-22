@@ -1,36 +1,32 @@
 $(document).ready(function() {
 	
 	// build overlay and options dialog
-	var overlay = '<div class="glass hide"></div>';
-	var options = '' +
-			'<div id="options-dialog" class="modal-dialog hide">' +
-				'<div class="modal-dialog-title">' +
-					'<span class="modal-dialog-title-text">Options</span>' +
-					'<span class="modal-dialog-title-close"></span>' +
-				'</div>' +
-				'<div class="modal-dialog-content">' +
-					'<label data-tooltip="Please restart Chrome for this change to take effect."><input type="checkbox" id="options_contextMenu" /> Enable context menus</label>' +
-				'</div>' +
-				'<div class="modal-dialog-buttons">' +
-					'<button>Okay</button>' +
-				'</div>' +
-			'</div>';
+	var dialogs = '';
 	
-	$('body').append(overlay + options);
-	$('.modal-dialog-title-close, .modal-dialog-buttons button').click(function() {
-		$('.glass').addClass('hide');
-		$(this).closest('.modal-dialog').addClass('hide');
-	});
-	chrome.storage.local.get([ 'contextMenu' ], function(items) {
-		if (items.contextMenu && items.contextMenu == true) {
-			$('#options_contextMenu').attr('checked', true);
-		}
-	});
-	$('#options_contextMenu').click(function() {
-		if ($('#options_contextMenu').attr('checked') == undefined) {
-			chrome.storage.local.set({ 'contextMenu': false }, function() {});
-		} else {
-			chrome.storage.local.set({ 'contextMenu': true }, function() {});
+	$.ajax({
+		url: chrome.extension.getURL('/html/dialogs.html'),
+		success: function(data, xhr, status) {
+			$('body').append(data);
+			
+			$('.modal-dialog-title-close, .modal-dialog-buttons button.goog-buttonset-action').click(function() {
+				$('.glass').addClass('hide');
+				$(this).closest('.modal-dialog').addClass('hide');
+			});
+			$('.modal-dialog-buttons button.donate').click(function() {
+				window.open('http://bit.ly/paneldonate');
+			});
+			chrome.storage.local.get([ 'contextMenu' ], function(items) {
+				if (items.contextMenu && items.contextMenu == true) {
+					$('#options_contextMenu').attr('checked', true);
+				}
+			});
+			$('#options_contextMenu').click(function() {
+				if ($('#options_contextMenu').attr('checked') == undefined) {
+					chrome.storage.local.set({ 'contextMenu': false }, function() {});
+				} else {
+					chrome.storage.local.set({ 'contextMenu': true }, function() {});
+				}
+			});
 		}
 	});
 	
@@ -59,12 +55,16 @@ $(document).ready(function() {
 	});
 	
 	// add options link to gear menu
-	$('#gbom').append('<li class="gbe gbmtc"><a id="gbom_options" class="gbmt" href="#">Options</a></li>');
+	$('#gbom').append(
+		'<li class="gbmtc"><div class="gbmt gbmh"></div></li>' +
+		'<li class="gbe gbmtc"><a class="gbmt keep_ext" href="#" data-open="options">Settings</a></li>'
+	);
 	
 	// options click
-	$('#gbom_options').click(function(e) {
+	$('#gbom a.keep_ext').click(function(e) {
 		e.preventDefault();
-		$('.glass, #options-dialog').removeClass('hide');
+		var openAttr = $(this).attr('data-open');
+		$('.glass, #' + openAttr + '-dialog').removeClass('hide');
 	});
 	
 	// save location on page load (so that switching accounts triggers a url save)
@@ -76,6 +76,37 @@ $(document).ready(function() {
 		chrome.runtime.sendMessage({ greeting: 'saveUrl', url: window.location.href }, function(response) {
 		});
 	});
+	
+	/*
+	
+	// list/grid view click
+	
+	$('.INgbqf-docTNd-Bz112c').each(function() {
+		$(this).parent().click(function() {
+			chrome.storage.local.set({ 'view': 'list' }, function() {});
+		});
+	});
+	$('.INgbqf-qwsjo-Bz112c').each(function() {
+		$(this).parent().click(function() {
+			chrome.storage.local.set({ 'view': 'grid' }, function() {});
+		});
+	});
+	
+	// set grid view
+	chrome.storage.local.get([ 'view' ], function(items) {
+		if (items.view && items.view == 'grid') {
+			$('.INgbqf-qwsjo-Bz112c').each(function() {
+				console.log($(this));
+				$(this).click();
+			});
+		}
+	});
+	
+	*/
+	
+	console.log(
+		$('[data-tooltip="New note"]').click()
+	);
 	
 });
 

@@ -86,4 +86,14 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 		}
 		sendResponse({ farewell: 'done' });
 	}
+	
+	if (request.greeting == 'saveView') {
+		var view = 'list';
+		if (request.view != undefined && request.view == 'grid') {
+			view = 'grid';
+		}
+		chrome.storage.local.set({ 'view': view }, function() {});
+		sendResponse({ farewell: view });
+	}
+	
 });
