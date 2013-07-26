@@ -1,6 +1,6 @@
 {
-	"name": "Panel View for Google Keep",
-	"description": "Panelized extension for Google Keep",
+	"name": "Panel View for Keep",
+	"description": "Panelized extension for Keep",
 	"version": "1.7",
 	"background": {
 		"scripts": [
