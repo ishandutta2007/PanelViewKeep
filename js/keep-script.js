@@ -77,37 +77,6 @@ $(document).ready(function() {
 		});
 	});
 	
-	/*
-	
-	// list/grid view click
-	
-	$('.INgbqf-docTNd-Bz112c').each(function() {
-		$(this).parent().click(function() {
-			chrome.storage.local.set({ 'view': 'list' }, function() {});
-		});
-	});
-	$('.INgbqf-qwsjo-Bz112c').each(function() {
-		$(this).parent().click(function() {
-			chrome.storage.local.set({ 'view': 'grid' }, function() {});
-		});
-	});
-	
-	// set grid view
-	chrome.storage.local.get([ 'view' ], function(items) {
-		if (items.view && items.view == 'grid') {
-			$('.INgbqf-qwsjo-Bz112c').each(function() {
-				console.log($(this));
-				$(this).click();
-			});
-		}
-	});
-	
-	*/
-	
-	console.log(
-		$('[data-tooltip="New note"]').click()
-	);
-	
 });
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
