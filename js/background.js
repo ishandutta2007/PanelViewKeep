@@ -53,9 +53,11 @@ function goToKeep() {
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 	
 	if (request.greeting == 'create') {
+		
 		if (request.url != undefined) {
 			KEEP_URL = request.url;
 		}
+		
 		if (request.type != undefined) {
 			KEEP_WINDOW_TYPE = request.type;
 		}
@@ -63,11 +65,11 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 		
 		if (KEEP_TAB_ID == 0 && KEEP_WINDOW_ID > 0) {
 			chrome.windows.remove(KEEP_WINDOW_ID, function() {
-				console.log('close window complete');
+				//console.log('close window complete');
 			});
 		} else {
 			chrome.tabs.remove(KEEP_TAB_ID, function() {
-				console.log('close tab complete');
+				//console.log('close tab complete');
 			});
 		}
 		

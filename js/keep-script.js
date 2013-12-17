@@ -30,23 +30,24 @@ $(document).ready(function() {
 		}
 	});
 	
-	// add send to tab/panel link to black bar
+	// add send to tab/panel link
 	var windowType = '';
 	chrome.runtime.sendMessage({ greeting: 'getType' }, function(response) {
 		windowType = response.farewell;
 		
-		var sendLink = '';
+		// add options link
+		var sendLink = '<a class="hSRGPd keep_ext_options" href="#" data-open="options">Panel View Options</a>';
 		if (windowType == 'normal') {
-			sendLink = '<li class="gbt"><a class="gbgt gbtc_send" href="#" data-type="panel" data-tooltip="Send to panel"><span></span></a></li>';
+			sendLink += '<a class="hSRGPd keep_ext_sendto" href="#" data-type="panel">Send to Panel</a>';
 		} else {
-			sendLink = '<li class="gbt"><a class="gbgt gbtc_send" href="#" data-type="normal" data-tooltip="Send to tab"><span></span></a></li>';
+			sendLink += '<a class="hSRGPd keep_ext_sendto" href="#" data-type="normal">Send to Tab</a>';
 		}
 		
-		$('#gbg > ol.gbtc').append('<li class="gbt gbtb" style=""><span class="gbts"></span></li>' + sendLink);
+		$('div.hSRGPd-haAclf').prepend(sendLink);
 	});
 	
 	// send to tab/panel click
-	$('ol.gbtc').on('click', '.gbtc_send', function() {
+	$('div.hSRGPd-haAclf').on('click', '.keep_ext_sendto', function() {
 		var url = location.href;
 		var type = $(this).attr('data-type');
 		
@@ -54,15 +55,8 @@ $(document).ready(function() {
 		});
 	});
 	
-	// add options link to gear menu
-	$('#gbom').append(
-		'<li class="gbmtc"><div class="gbmt gbmh"></div></li>' +
-		'<li class="gbe gbmtc"><a class="gbmt keep_ext" href="#" data-open="options">Settings</a></li>'
-	);
-	
 	// options click
-	$('#gbom a.keep_ext').click(function(e) {
-		e.preventDefault();
+	$('div.hSRGPd-haAclf').on('click', '.keep_ext_options', function() {
 		var openAttr = $(this).attr('data-open');
 		$('.glass, #' + openAttr + '-dialog').removeClass('hide');
 	});
