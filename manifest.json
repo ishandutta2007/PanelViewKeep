@@ -1,7 +1,7 @@
 {
 	"name": "Panel View for Keep",
 	"description": "Panelized extension for Keep",
-	"version": "2.0",
+	"version": "2.1",
 	"background": {
 		"scripts": [
 			"js/background.js",
@@ -20,7 +20,8 @@
 		"tabs",
 		"storage",
 		"contextMenus",
-		"https://drive.google.com/keep/*"
+		"https://drive.google.com/keep/*",
+        "https://keep.google.com/*"
 	],
 	"content_scripts": [
 		{
@@ -28,7 +29,8 @@
 				"js/jquery-1.7.2.min.js"
 			],
 			"matches": [
-				"https://drive.google.com/keep/*"
+				"https://drive.google.com/keep/*",
+                "https://keep.google.com/*"
 			],
 			"run_at": "document_start"
 		},
@@ -40,7 +42,8 @@
 				"js/keep-script.js"
 			],
 			"matches": [
-				"https://drive.google.com/keep/*"
+				"https://drive.google.com/keep/*",
+                "https://keep.google.com/*"
 			],
 			"run_at": "document_end"
 		}
