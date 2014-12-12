@@ -20,23 +20,25 @@ function createKeep() {
 }
 
 function goToKeep() {
-	if (KEEP_WINDOW_ID > 0) {
-		chrome.windows.get(KEEP_WINDOW_ID, function(window) {
-			chrome.windows.update(KEEP_WINDOW_ID, { focused: true });
-			chrome.tabs.update(KEEP_TAB_ID, { active:true }, function(tab) {});
-		});
+    if (KEEP_WINDOW_ID > 0) {
+        if (KEEP_TAB_ID > 0) {
+            chrome.tabs.get(KEEP_TAB_ID, function(tab) {
+                if (tab.url.indexOf(KEEP_URL) == -1) {
+                    createKeep();
+                } else {
+                    chrome.windows.get(KEEP_WINDOW_ID, function(window) {
+                        chrome.windows.update(KEEP_WINDOW_ID, { focused: true });
+                        chrome.tabs.update(KEEP_TAB_ID, { active:true }, function(tab) {});
+                    });
+                }
+            });
+        } else {
+            chrome.windows.get(KEEP_WINDOW_ID, function(window) {
+                chrome.windows.update(KEEP_WINDOW_ID, { focused: true });
+            });
+        }
 	} else {
-		chrome.windows.getAll({ populate:true }, function(windows) {
-			for (var i = 0, window; window = windows[i]; i++) {
-				for (var j = 0, tab; tab = window.tabs[j]; j++) {
-					if (tab.url.indexOf(KEEP_URL) != -1) {
-						chrome.tabs.update(tab.id, { selected: true });
-						return;
-					}
-				}
-			}
-			createKeep();
-		});
+        createKeep();
 	}
 }
 
