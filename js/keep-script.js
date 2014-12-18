@@ -1,23 +1,5 @@
 $(document).ready(function() {
 	
-	// build overlay and options dialog
-	var dialogs = '';
-	
-	$.ajax({
-		url: chrome.extension.getURL('/html/dialogs.html'),
-		success: function(data, xhr, status) {
-			$('body').append(data);
-			
-			$('.modal-dialog-title-close, .modal-dialog-buttons button.goog-buttonset-action').click(function() {
-				$('.glass').addClass('hide');
-				$(this).closest('.modal-dialog').addClass('hide');
-			});
-			$('.modal-dialog-buttons button.donate').click(function() {
-				window.open('http://bit.ly/paneldonate');
-			});
-		}
-	});
-	
 	// add send to tab/panel link
 	var windowType = '';
 	chrome.runtime.sendMessage({ greeting: 'getType' }, function(response) {
