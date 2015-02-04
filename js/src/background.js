@@ -49,7 +49,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 			KEEP_WINDOW_TYPE = request.type;
 		}
 		
-		if (KEEP_TAB_ID == 0 && KEEP_WINDOW_ID > 0) {
+		if (KEEP_TAB_ID === 0 && KEEP_WINDOW_ID > 0) {
 			chrome.windows.remove(KEEP_WINDOW_ID, function() {
 			});
 		} else {
