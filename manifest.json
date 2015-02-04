@@ -1,11 +1,11 @@
 {
 	"name": "Panel View for Keep",
 	"description": "Panelized extension for Keep",
-	"version": "2.4",
+	"version": "2.5",
 	"background": {
 		"scripts": [
-			"js/background.js",
-			"js/events.js"
+			"js/background.min.js",
+			"js/events.min.js"
 		]
 	},
 	"browser_action": {
@@ -18,26 +18,32 @@
 	"permissions": [
 		"tabs",
 		"https://drive.google.com/keep/*",
-        "https://keep.google.com/*"
+        "https://keep.google.com/*",
+        "https://keep-sharing.google.com/*"
 	],
 	"content_scripts": [
 		{
-			"js": [
-				"js/jquery-1.7.2.min.js"
+            "js": [
+				"js/jquery.min.js"
 			],
 			"matches": [
 				"https://drive.google.com/keep/*",
-                "https://keep.google.com/*"
+                "https://keep.google.com/*",
+                "https://keep-sharing.google.com/*"
 			],
 			"run_at": "document_start"
 		},
 		{
-			"js": [
-				"js/keep-script.js"
+			"css": [
+                "css/style.css"
+            ],
+            "js": [
+				"js/keep-script.min.js"
 			],
 			"matches": [
 				"https://drive.google.com/keep/*",
-                "https://keep.google.com/*"
+                "https://keep.google.com/*",
+                "https://keep-sharing.google.com/*"
 			],
 			"run_at": "document_end"
 		}
