@@ -1,0 +1,13 @@
+// only do this for narrower windows
+@media only screen and (max-width : 450px) {
+    // reset the left and right position
+    .VIpgJd-TUo6Hb.XKSfm-L9AdLc.eo9XGd {
+        left: 0 !important; // hijack specificity because the value is assigned inline
+        right: 0;
+        
+        // first child element, constraining the width to the screen
+        > div:first-child {
+            max-width: 100%;
+        }
+    }
+}
