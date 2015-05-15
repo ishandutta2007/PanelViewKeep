@@ -71,7 +71,7 @@ If you see something wrong, or you want to improve on what I've got here, feel f
 
 ##License
 
-Cover is [GPL v2.0 or later](LICENSE.txt).
+Panel View for Keep is [GPL v2.0 or later](LICENSE.txt).
 
 All other resources are licensed as follows:
 
