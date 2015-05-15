@@ -1,6 +1,6 @@
 {
   "name": "PanelViewKeep",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "description": "Panelized extension for Keep",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
