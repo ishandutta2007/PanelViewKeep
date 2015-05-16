@@ -1,13 +1,35 @@
+$icon-bar-height: 45px;
+
 // only do this for narrower windows
 @media only screen and (max-width : 450px) {
     // reset the left and right position
     .VIpgJd-TUo6Hb.XKSfm-L9AdLc.eo9XGd {
-        left: 0 !important; // hijack specificity because the value is assigned inline
+        bottom: 0;
+        left: 0 !important; // override inline style
         right: 0;
+        top: 0 !important; // override inline style
         
-        // first child element, constraining the width to the screen
+        // first child element
         > div:first-child {
+            height: 100%;
             max-width: 100%;
         }
+    }
+    
+    // note content and icon bar container
+    .IZ65Hb-TBnied {
+        height: 100%;
+    }
+    
+    // note content
+    .IZ65Hb-s2gQvd {
+        /**
+         * As of Sass 3.4, you can't use a variable in calc(), like this:
+         * calc(100% - $icon-bar-height)
+         * Instead, you must interpolate the variable to print out the value.
+         * https://github.com/sass/sass/issues/818
+         */
+        height: calc(100% - #{$icon-bar-height});
+        max-height: none !important; // override inline style
     }
 }

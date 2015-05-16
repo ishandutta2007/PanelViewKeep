@@ -39,6 +39,10 @@ If you see something wrong, or you want to improve on what I've got here, feel f
 
 ##Changelog
 
+2.6
+- Updated individual note view to take up the full height of the window (only for small window sizes).
+- Fixed typos in readme and building docs.
+
 2.5
 - Fixed CSS bug when the Share button on a note is clicked without first opening the note.
 - Fixed toolbar icon. The 2.4 update had the wrong icon by accident.
@@ -71,7 +75,7 @@ If you see something wrong, or you want to improve on what I've got here, feel f
 
 ##License
 
-Cover is [GPL v2.0 or later](LICENSE.txt).
+Panel View for Keep is [GPL v2.0 or later](LICENSE.txt).
 
 All other resources are licensed as follows:
 
