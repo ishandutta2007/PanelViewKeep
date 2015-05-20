@@ -1,5 +1,9 @@
 $icon-bar-height: 45px;
 
+.UU3Zxb .UU3Zxb-qwU8Me {
+    background: none !important;
+}
+
 // only do this for narrower windows
 @media only screen and (max-width : 450px) {
     // reset the left and right position
@@ -31,5 +35,86 @@ $icon-bar-height: 45px;
          */
         height: calc(100% - #{$icon-bar-height});
         max-height: none !important; // override inline style
+    }
+    
+    // special class to enable collapsed list view
+    body.collapse-list-view {
+        
+        // note in list view
+        .IZ65Hb-n0tgWb {
+
+            // note title
+            .r4nke-YPqjbf {
+                font-weight: normal !important;
+                font-family: 'Roboto Slab', 'Times New Roman', serif !important;
+                padding: 15px !important;
+            }
+
+            .h1U9Be-YPqjbf, // note content
+            .gkA7Yd-sKfxWe, // list content
+            .IZ65Hb-x00ATb, // labels
+            .IZ65Hb-yePe5c  // toolbar
+            {
+                display: none;
+            }
+
+            .TUdKmf-xhiy4 .h1U9Be-YPqjbf,                           // new note thingy
+            .r4nke-YPqjbf[style="display: none;"] + .h1U9Be-YPqjbf, // show note content when no title is used
+            .r4nke-YPqjbf[style="display: none;"] + .LwH6nd[style="display: none;"] + .h1U9Be-YPqjbf // this is a thing too
+            {
+                display: block !important;
+            }
+
+            // hide it again if it's explicitly set to hidden or empty. isn't dom hacking fun?
+            .r4nke-YPqjbf[style="display: none;"] + .h1U9Be-YPqjbf[style="display: none;"],
+            .r4nke-YPqjbf[style="display: none;"] ~ .h1U9Be-YPqjbf:empty {
+                display: none !important;
+            }
+        }
+        
+        // create note thing
+        .RfDI4d-mAKE4e-DyVDA-haAclf {
+            .h1U9Be-YPqjbf, // note content
+            .r4nke-YPqjbf[style="display: none;"] ~ .h1U9Be-YPqjbf:empty, // also note content
+            .gkA7Yd-sKfxWe, // list content
+            .IZ65Hb-x00ATb, // labels
+            .IZ65Hb-yePe5c  // toolbar
+            {
+                display: block !important;
+            }
+            
+            .TUdKmf-xhiy4-qAWA2 .IZ65Hb-yePe5c,
+            .h1U9Be-YPqjbf[style="display: none;"] {
+                display: none !important;
+            }
+            
+            .IZ65Hb-s2gQvd {
+                height: auto !important;
+            }
+        }
+        
+        // active note
+        .eo9XGd {
+
+            // note title
+            .r4nke-YPqjbf {
+                font-weight: bold !important;
+                font-family: 'Roboto Condensed', 'Droid Sans', arial, sans-serif !important;
+                padding: 10px 15px !important;
+            }
+
+            .h1U9Be-YPqjbf, // note content
+            .gkA7Yd-sKfxWe, // list content
+            .IZ65Hb-x00ATb, // labels
+            .IZ65Hb-yePe5c  // toolbar
+            {
+                display: block;
+            }
+            
+            .r4nke-YPqjbf[style="display: none;"] ~ .h1U9Be-YPqjbf:empty {
+                display: block !important; // hack hack hack
+            }
+        }
+        
     }
 }

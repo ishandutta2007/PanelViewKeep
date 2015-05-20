@@ -25,4 +25,8 @@ $(document).ready(function() {
 		chrome.runtime.sendMessage({ greeting: 'create', url: url, type: type }, function(response) {
 		});
 	});
+    
+    // TODO: add extension option to toggle this?
+    $('body').addClass('collapse-list-view');
+    
 });

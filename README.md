@@ -39,6 +39,9 @@ If you see something wrong, or you want to improve on what I've got here, feel f
 
 ##Changelog
 
+2.7.1
+- Changed list view to show collapsed notes.
+
 2.6
 - Updated individual note view to take up the full height of the window (only for small window sizes).
 - Fixed typos in readme and building docs.
