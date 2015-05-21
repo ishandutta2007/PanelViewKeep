@@ -39,6 +39,12 @@ If you see something wrong, or you want to improve on what I've got here, feel f
 
 ##Changelog
 
+2.8
+- Reverted to default list view.
+- Added an option (below "Send to Tab") to enable collapsed list view.
+- Added the "storage" permission so the extension remembers the option.
+- Cleaned up source styles.
+
 2.7.1
 - Changed list view to show collapsed notes.
 
