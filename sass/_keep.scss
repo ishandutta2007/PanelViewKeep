@@ -71,6 +71,12 @@
             .#{$note-content}[style="display: none;"] {
                 display: none !important;
             }
+            
+            .#{$note-title} {
+                font-family: $font-stack-title !important;
+                font-weight: bold !important;
+                padding: 15px 15px 0 15px !important;
+            }
         }
         
         .#{$active-note} {
