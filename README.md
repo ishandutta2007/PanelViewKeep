@@ -39,6 +39,9 @@ If you see something wrong, or you want to improve on what I've got here, feel f
 
 ##Changelog
 
+2.8.1
+- Fixed bug where checklist notes without a title were being hidden in the collapsed list view.
+
 2.8
 - Reverted to default list view.
 - Added an option (below "Send to Tab") to enable collapsed list view.
