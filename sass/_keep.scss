@@ -47,8 +47,8 @@
 
             .#{$new-note-container-inside-wrapper} .#{$note-content},
             .#{$note-title}[style="display: none;"] + .#{$note-content},
-            .#{$note-title}[style="display: none;"] + .#{$note-title-placeholder}[style="display: none;"] + .#{$note-content}
-            {
+            .#{$note-title}[style="display: none;"] + .#{$note-title-placeholder}[style="display: none;"] + .#{$note-content},
+            .#{$note-title}[style="display: none;"] + .#{$note-content-list} {
                 display: block !important;
             }
 
