@@ -20,13 +20,26 @@
     }
     
     .#{$note-container} {
-        height: calc(100% - #{$note-toolbar-height});
         max-height: none !important;
+        
+        .#{$new-note-container} & {
+            height: auto !important;
+        }
     }
     
-    .#{$new-note-container} {
+    .#{$active-note} {
+        .#{$note-wrapper} {
+            display: flex;
+            flex-flow: column;
+        }
+
         .#{$note-container} {
-            height: auto !important;
+            flex: 1 1 auto;
+            height: 1px; // seems necessary to trigger flex
+        }
+
+        .#{$note-toolbar} {
+            flex: 0 1 auto;
         }
     }
     
