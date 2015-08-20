@@ -20,7 +20,7 @@ The extension can be found on the [Chrome Web Store](https://chrome.google.com/w
 You can download the latest from Github. Follow these steps to activate Panel View for Keep:
 
 1. Download the [latest release](https://github.com/peiche/PanelViewKeep/releases).
-2. Extract to the folder location of your choice. 
+2. Extract to the folder location of your choice.
 3. In Chrome, navigate to [chrome://extensions](chrome://extensions). (Alternatively, click the menu button > More tools > Extensions.)
 4. In the top right corner, make sure "Developer mode" is checked.
 5. Click the **Load unpacked extension** button. Navigate to the extension's folder, click it to select it, and click OK.
@@ -38,6 +38,13 @@ There's nothing here yet. Ask me something!
 If you see something wrong, or you want to improve on what I've got here, feel free to submit an issue or create a pull request.
 
 ##Changelog
+
+3.0
+- Complete rewrite of the override stylesheet!
+- Moved the "Add note" area to the bottom of the panel, to match the Android app.
+- Modified the [toast](https://www.google.com/design/spec/components/snackbars-toasts.html) to match the Android app.
+- The panel view now persists across sessions.
+- Fixed Share Note screen in the panel.
 
 2.8.2
 - Fixed bug where reminders were not visible in single note view.
