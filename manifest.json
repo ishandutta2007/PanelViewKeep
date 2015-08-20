@@ -1,50 +1,50 @@
 {
-	"name": "Panel View for Keep",
+	"name": "Panel View for Keep Beta",
 	"description": "Panelized extension for Keep",
-	"version": "2.8.2",
+	"version": "3.0",
 	"background": {
 		"scripts": [
-			"js/background.min.js",
-			"js/events.min.js"
+			"dist/js/background.js",
+			"dist/js/events.js"
 		]
 	},
 	"browser_action": {
-		"default_icon": "img/icon_16.png"
+		"default_icon": "dist/img/icon_16.png"
 	},
 	"icons": {
-		"128": "img/icon_128.png",
-		"16": "img/icon_16.png"
+		"128": "dist/img/icon_128.png",
+		"16": "dist/img/icon_16.png"
 	},
 	"permissions": [
 		"tabs",
 		"https://drive.google.com/keep/*",
-        "https://keep.google.com/*",
-        "https://keep-sharing.google.com/*",
-        "storage"
+		"https://keep.google.com/*",
+		"https://keep-sharing.google.com/*",
+		"storage"
 	],
 	"content_scripts": [
 		{
-            "js": [
-				"js/jquery.min.js"
+			"js": [
+				"dist/js/jquery.min.js"
 			],
 			"matches": [
 				"https://drive.google.com/keep/*",
-                "https://keep.google.com/*",
-                "https://keep-sharing.google.com/*"
+				"https://keep.google.com/*",
+				"https://keep-sharing.google.com/*"
 			],
 			"run_at": "document_start"
 		},
 		{
 			"css": [
-                "css/style.css"
-            ],
-            "js": [
-				"js/keep-script.min.js"
+				"dist/css/style.css"
+			],
+			"js": [
+				"dist/js/keep-script.js"
 			],
 			"matches": [
 				"https://drive.google.com/keep/*",
-                "https://keep.google.com/*",
-                "https://keep-sharing.google.com/*"
+				"https://keep.google.com/*",
+				"https://keep-sharing.google.com/*"
 			],
 			"run_at": "document_end"
 		}
