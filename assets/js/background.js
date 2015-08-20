@@ -3,6 +3,12 @@ var KEEP_WINDOW_ID = 0;
 var KEEP_URL = 'https://keep.google.com/';
 var KEEP_WINDOW_TYPE = 'normal';
 
+chrome.storage.sync.get('window_type', function(items) {
+	if (items.window_type !== undefined) {
+		KEEP_WINDOW_TYPE = items.window_type;
+	}
+});
+
 function createKeep() {
 	if (KEEP_WINDOW_TYPE === 'normal') {
 		chrome.tabs.create({
@@ -43,12 +49,17 @@ function goToKeep() {
 }
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-	
+
 	if (request.greeting == 'create') {
 		if (typeof request.type != 'undefined') {
 			KEEP_WINDOW_TYPE = request.type;
+
+			chrome.storage.sync.set({ 'window_type': KEEP_WINDOW_TYPE }, function() {
+				// do nothing
+			});
+			
 		}
-		
+
 		if (KEEP_TAB_ID === 0 && KEEP_WINDOW_ID > 0) {
 			chrome.windows.remove(KEEP_WINDOW_ID, function() {
 			});
@@ -56,11 +67,11 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 			chrome.tabs.remove(KEEP_TAB_ID, function() {
 			});
 		}
-		
+
 		createKeep();
 		sendResponse({ farewell: 'close current' });
 	}
-	
+
 	if (request.greeting == 'getType') {
 		sendResponse({ farewell: KEEP_WINDOW_TYPE });
 	}
