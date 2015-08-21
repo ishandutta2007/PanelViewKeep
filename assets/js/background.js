@@ -9,6 +9,10 @@ chrome.storage.sync.get('window_type', function(items) {
 	}
 });
 
+chrome.storage.sync.get('icon_alt', function(items) {
+	chrome.browserAction.setIcon({ 'path': 'dist/img/icon_16' + (items.icon_alt ? '_alt' : '') + '.png' }, function() {});
+});
+
 function createKeep() {
 	if (KEEP_WINDOW_TYPE === 'normal') {
 		chrome.tabs.create({
@@ -57,7 +61,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 			chrome.storage.sync.set({ 'window_type': KEEP_WINDOW_TYPE }, function() {
 				// do nothing
 			});
-			
+
 		}
 
 		if (KEEP_TAB_ID === 0 && KEEP_WINDOW_ID > 0) {
@@ -74,5 +78,15 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 
 	if (request.greeting == 'getType') {
 		sendResponse({ farewell: KEEP_WINDOW_TYPE });
+	}
+
+	if (request.greeting == 'icon') {
+		if (typeof request.alt != 'undefined') {
+			chrome.storage.sync.set({ 'icon_alt': request.alt }, function() {
+				chrome.browserAction.setIcon({ 'path': 'dist/img/icon_16' + (request.alt ? '_alt' : '') + '.png' }, function() {
+					sendResponse({ farewell: request.alt });
+				});
+			});
+		}
 	}
 });
