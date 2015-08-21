@@ -41,10 +41,12 @@ If you see something wrong, or you want to improve on what I've got here, feel f
 
 3.0
 - Complete rewrite of the override stylesheet!
-- Moved the "Add note" area to the bottom of the panel, to match the Android app.
-- Modified the [toast](https://www.google.com/design/spec/components/snackbars-toasts.html) to match the Android app.
+  - Moved the "Add note" area to the bottom of the panel, to match the Android app.
+  - Modified the [toast](https://www.google.com/design/spec/components/snackbars-toasts.html) to match the Android app.
+  - Fixed Share Note screen in the panel.
 - The panel view now persists across sessions.
-- Fixed Share Note screen in the panel.
+- Fixed bug where Keep in a tab would not close when switching to a panel.
+- Fixed console errors due to invalid window and tab IDs.
 
 2.8.2
 - Fixed bug where reminders were not visible in single note view.
