@@ -153,7 +153,7 @@ module.exports = function(grunt) {
               '!gruntfile.js',
               '!package.json',
               '!bower_components/**',
-              '!dist/**',
+              '!assets/**',
               '!node_modules/**',
               '!releases/**',
               '!report/**'
