@@ -80,12 +80,12 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 		sendResponse({ farewell: KEEP_WINDOW_TYPE });
 	}
 
-	if (request.greeting == 'icon') {
-		if (typeof request.alt != 'undefined') {
-			chrome.storage.sync.set({ 'icon_alt': request.alt }, function() {
-				chrome.browserAction.setIcon({ 'path': 'dist/img/icon_16' + (request.alt ? '_alt' : '') + '.png' }, function() {
-					sendResponse({ farewell: request.alt });
-				});
+	if (request.greeting == 'icon_alt') {
+		if (typeof request.icon_alt != 'undefined') {
+			console.log(request.icon_alt);
+
+			chrome.storage.sync.set({ 'icon_alt': request.icon_alt }, function() {
+				chrome.browserAction.setIcon({ 'path': 'dist/img/icon_16' + (request.icon_alt ? '_alt' : '') + '.png' }, function() {});
 			});
 		}
 	}

@@ -46,33 +46,10 @@ $(document).ready(function() {
 		e.preventDefault();
 		var iconVal = !($('.keep_ext_icon .icon-checkbox').hasClass('checked'));
 
-		chrome.runtime.sendMessage({ greeting: 'icon', alt: iconVal }, function(response) {
-			if (response.farewell) {
-				$('.keep_ext_icon .icon-checkbox').addClass('checked');
-			} else {
-				$('.keep_ext_icon .icon-checkbox').removeClass('checked');
-			}
-		});
+		chrome.runtime.sendMessage({ greeting: 'icon_alt', icon_alt: iconVal }, function(response) {});
 
-		/*
-
-		console.log(iconVal);
-
-		chrome.storage.sync.set({ 'icon_alt': iconVal }, function() {
-			console.log(iconVal);
-			if (iconVal) {
-				chrome.browserAction.setIcon({ 'path': KEEP_ICON_ALT }, function() {
-					$('.keep_ext_icon .icon-checkbox').addClass('checked');
-				});
-			} else {
-				chrome.browserAction.setIcon({ 'path': KEEP_ICON }, function() {
-					$('.keep_ext_icon .icon-checkbox').removeClass('checked');
-				});
-			}
-		});
-
-		*/
-
+		// let's assume everything worked. :/
+		$('.keep_ext_icon .icon-checkbox').toggleClass('checked');
 	});
 
 	// on page load, set the body and checkbox classes
@@ -84,7 +61,7 @@ $(document).ready(function() {
 	});
 
 	chrome.storage.sync.get('icon_alt', function(items) {
-		if (items.icon !== undefined && items.icon_alt === true) {
+		if (items.icon_alt !== undefined && items.icon_alt === true) {
 			$('.keep_ext_icon .icon-checkbox').addClass('checked');
 		}
 	});
