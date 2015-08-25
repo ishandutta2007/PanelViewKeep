@@ -31,7 +31,17 @@ So you want to build the project yourself. Great! Please follow [these direction
 
 ##FAQ
 
-There's nothing here yet. Ask me something!
+1. **I don't get it. This just opens Google Keep in a new tab.**
+
+   Not so! This extension serves as a shortcut to [keep.google.com](http://keep.google.com), but also much more. You'll find at the bottom of Keep's sidebar (click the hamburger icon (☰) to open it), a new link entitled "Send to Panel." Click that and you're on your way.
+
+2. **When I click "Send to Panel," it opens a popup window, not a panel.**
+
+   Unfortunately, Chrome disables the panel API by default. To override this, you'll need to enable it in [chrome:flags](chrome://flags/#enable-panels) and restart Chrome. Now you're ready to use panels.
+
+3. **Why can't I upload an image when Keep is in panel view?**
+
+   This is a known bug with panels. Read more about this issue on [crbug.com](https://code.google.com/p/chromium/issues/detail?id=463367&q=panel%20upload&colspec=ID%20Pri%20M%20Stars%20ReleaseBlock%20Cr%20Status%20Owner%20Summary%20OS%20Modified).
 
 ##Contribute
 
@@ -41,11 +51,11 @@ If you see something wrong, or you want to improve on what I've got here, feel f
 
 3.0
 - Complete rewrite of the override stylesheet!
-  - Moved the "Add note" area to the bottom of the panel, to match the Android app.
+  - Moved the "Add note" area to the bottom of the panel, to match the Android app. It creates a new note in full-screen, again just like the Android app.
   - Modified the [toast](https://www.google.com/design/spec/components/snackbars-toasts.html) to match the Android app.
   - Fixed Share Note screen in the panel.
 - The panel view now persists across sessions.
-- Fixed bug where Keep in a tab would not close when switching to a panel.
+- Fixed bug where Keep in a tab [would not close when switching to a panel](http://eichefam.net/2015/08/24/on-tab-detachment-and-reattachment/).
 - Fixed console errors due to invalid window and tab IDs.
 
 2.8.2

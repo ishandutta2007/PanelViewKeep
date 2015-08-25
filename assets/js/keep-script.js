@@ -24,8 +24,7 @@ $(document).ready(function() {
 		var url = location.href;
 		var type = $(this).attr('data-type');
 
-		chrome.runtime.sendMessage({ greeting: 'create', url: url, type: type }, function(response) {
-		});
+		chrome.runtime.sendMessage({ greeting: 'create', url: url, type: type }, function(response) {});
 	});
 
 	// save on click and reset classes
@@ -48,7 +47,6 @@ $(document).ready(function() {
 
 		chrome.runtime.sendMessage({ greeting: 'icon_alt', icon_alt: iconVal }, function(response) {});
 
-		// let's assume everything worked. :/
 		$('.keep_ext_icon .icon-checkbox').toggleClass('checked');
 	});
 
