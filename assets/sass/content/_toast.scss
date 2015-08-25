@@ -1,0 +1,14 @@
+@media only screen and (max-width: $panel-width) {
+  .#{$toast}-#{$bar} {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .#{$toast} {
+    border-radius: 0 !important;
+  }
+
+  .#{$toast}-#{$content} {
+    width: 100% !important;
+  }
+}

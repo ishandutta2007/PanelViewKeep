@@ -37,10 +37,12 @@ $ grunt validate
 We haven't built anything yet, of course. This was just running the linters. Run the next command to compile the project's stylesheet and JavaScript.
 
 ```
-$ grunt build
+$ grunt dev/prod
 ```
 
-The build process copies files from external sources (in this case, js jQuery), compiles the .scss into a stylesheet, and minifies the JavaScript.
+The build process copies files from external sources (in this case, jQuery), compiles the .scss into a stylesheet, and minifies the JavaScript.
+
+Run `grunt dev` to build with the css and js unminified. Run `grunt prod` to build with the css and js minified and mangled; this also strips out any `console.log()` and `alert()` calls, in order to minimize chatter.
 
 At this point, you have a working Chrome extension. You can load this unpacked extension in Chrome now, if you want. Follow the directions for [manual installation on the readme](README.md#manual-installation) for this. Continue on to the last section to see how the project can be built into a zip file, which can be uploaded to the Chrome Web Store.
 

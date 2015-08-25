@@ -1,0 +1,145 @@
+// everything inside media query for panel width
+@media only screen and (max-width: $panel-width) {
+
+  // note list
+  .#{$list}-#{$notes}.#{$block}-#{$line}-#{$list} {
+    margin-bottom: 60px; // make last note visible
+  }
+
+  // active note
+  .#{$single}-#{$item}.#{$full}-#{$screen}.#{$modal} {
+    top: 0 !important;
+    bottom: 0;
+    left: 0 !important;
+    right: 0;
+    padding: 0;
+  }
+
+  // active note wrapper
+  .#{$note}-#{$inner}.#{$open} {
+    height: 100%; // inherit height from parent
+    width: 100%;
+  }
+
+  // active note content and toolbar wrapper
+  .#{$note}-#{$wrapper} {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+  }
+
+  // active note content
+  .#{$note}-#{$text} {
+    flex: 1 1 auto;
+    max-height: 100% !important;
+  }
+
+  // active note toolbar
+  .#{$note}-#{$toolbar} {
+    flex: 0 1 auto;
+  }
+
+  // active note share screen
+  .#{$share}-#{$screen} {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+  }
+
+  // active note share content
+  .#{$share}-#{$screen}-#{$content} {
+    flex: 1 1 auto;
+  }
+
+  // active note share toolbar
+  .#{$share}-#{$screen}-#{$toolbar} {
+    flex: 0 1 auto;
+  }
+
+  // new note container
+  .#{$card}-#{$container}.#{$new} {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0;
+    margin: 0 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+    width: 100% !important;
+
+    // note inner
+    .#{$note}-#{$inner} {
+      width: 100% !important;
+    }
+  }
+
+  // new note outer
+  .#{$note}-#{$wrapper}.#{$create}-#{$card} {
+    border-radius: 0 !important;
+  }
+
+  // new note inner - active
+  .#{$note}-#{$inner}.#{$note}-#{$active} {
+    width: 100% !important;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+  }
+
+  // collapse list view option enabled
+  .collapse-list-view {
+
+    // note list
+    .#{$list}-#{$notes}.#{$block}-#{$line}-#{$list} {
+
+      // image container
+      .#{$note}-#{$image} {
+        display: none;
+      }
+
+      // title
+      // reset the style so all notes look similar
+      .#{$title}-#{$outer} {
+        padding: 12px 15px 15px !important;
+        font-family: 'Roboto Slab', 'Times New Roman', serif;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: 19px !important;
+      }
+
+      // body
+      .#{$card}-#{$outer} {}
+
+      // list
+      .#{$checkbox}-#{$note}-#{$list} {}
+
+      // hide the content if there is a title
+      .#{$title}-#{$outer}:not(.#{$placeholder}) ~ .#{$card}-#{$outer},
+      .#{$title}-#{$outer}:not(.#{$placeholder}) ~ .#{$checkbox}-#{$note}-#{$list} {
+        display: none;
+      }
+
+      // override and show the content if the title block is hidden
+      .#{$title}-#{$outer}[style="display: none;"]:not(.#{$placeholder}) ~ .#{$card}-#{$outer},
+      .#{$title}-#{$outer}[style="display: none;"]:not(.#{$placeholder}) ~ .#{$checkbox}-#{$note}-#{$list} {
+        display: block;
+      }
+
+      // toolbar
+      .#{$note}-#{$toolbar} {
+        display: none;
+      }
+
+      // tags
+      .#{$note}-#{$tags} {
+        display: none;
+      }
+
+    }
+
+  }
+
+}
