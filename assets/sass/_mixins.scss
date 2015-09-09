@@ -1,0 +1,13 @@
+@mixin full-screen {
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+@mixin full-screen--content {
+  flex: 1 1 auto;
+}
+
+@mixin full-screen--toolbar {
+  flex: 0 1 auto;
+}
