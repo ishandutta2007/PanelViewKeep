@@ -23,37 +23,56 @@
 
   // active note content and toolbar wrapper
   .#{$note}-#{$wrapper} {
-    display: flex;
-    flex-flow: column;
-    height: 100%;
+    @include full-screen;
   }
 
   // active note content
   .#{$note}-#{$text} {
-    flex: 1 1 auto;
+    @include full-screen--content;
     max-height: 100% !important;
   }
 
   // active note toolbar
   .#{$note}-#{$toolbar} {
-    flex: 0 1 auto;
+    @include full-screen--toolbar;
   }
 
   // active note share screen
   .#{$share}-#{$screen} {
-    height: 100%;
-    display: flex;
-    flex-flow: column;
+    @include full-screen;
   }
 
   // active note share content
   .#{$share}-#{$screen}-#{$content} {
-    flex: 1 1 auto;
+    @include full-screen--content;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  // share note screen contact list
+  .#{$share}-#{$scroll}-#{$content} {
+    min-height: 0 !important;
+    max-height: calc(100vh - 96px) !important; // total height minus header and toolbar
   }
 
   // active note share toolbar
   .#{$share}-#{$screen}-#{$toolbar} {
-    flex: 0 1 auto;
+    @include full-screen--toolbar;
+  }
+
+  // active note list settings screen
+  .#{$display}-#{$settings} {
+    @include full-screen;
+  }
+
+  // active note list settings content
+  .#{$checkbox}-#{$options}-#{$panel} {
+    @include full-screen--content;
+  }
+
+  // active note list settings toolbar
+  .#{$checkbox}-#{$options}-#{$toolbar} {
+    @include full-screen--toolbar;
   }
 
   // new note container
@@ -87,6 +106,11 @@
     bottom: 0;
     left: 0;
     z-index: 999;
+  }
+
+  // hide search result labels
+  .#{$search}-#{$result}-#{$label} {
+    display: none;
   }
 
   // collapse list view option enabled
@@ -130,6 +154,47 @@
 
       // toolbar
       .#{$note}-#{$toolbar} {
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        background-color: inherit !important;
+      }
+
+      .#{$note}-#{$inner}:hover .#{$note}-#{$toolbar} {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .#{$note}-INgbqf {
+
+        // hide all icons except archive and overflow
+        .#{$remind},
+        .#{$sharing},
+        .#{$color}-#{$change} {
+         display: none;
+        }
+
+        // invert icons to make black or dark gray
+        .#{$archive},
+        .#{$more} {
+          filter: invert(1);
+          opacity: 0.5;
+
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+
+      // reminder
+      .#{$note}-#{$remind}-#{$popup}.#{$show} {
+        display: none;
+      }
+
+      // share contacts
+      .#{$contact}-#{$popup} {
         display: none;
       }
 

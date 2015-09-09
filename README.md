@@ -49,6 +49,12 @@ If you see something wrong, or you want to improve on what I've got here, feel f
 
 ##Changelog
 
+3.1
+- Fixed scroll area for share screen.
+- Fixed height of list settings screen.
+- Hid label in search result.
+- Restructured toolbar in collapsed view.
+
 3.0
 - Complete rewrite of the override stylesheet!
   - Moved the "Add note" area to the bottom of the panel, to match the Android app. It creates a new note in full-screen, again just like the Android app.

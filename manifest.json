@@ -1,7 +1,7 @@
 {
 	"name": "Panel View for Keep",
 	"description": "Panelized extension for Keep",
-	"version": "3.0",
+	"version": "3.1",
 	"background": {
 		"scripts": [
 			"dist/js/background.js",
