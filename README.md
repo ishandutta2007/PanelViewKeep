@@ -49,6 +49,10 @@ If you see something wrong, or you want to improve on what I've got here, feel f
 
 ##Changelog
 
+3.2
+- Style fixes.
+- Made reminder notes' schedule icon visible in collapsed view.
+
 3.1
 - Fixed scroll area for share screen.
 - Fixed height of list settings screen.
