@@ -35,6 +35,7 @@
   // active note toolbar
   .#{$note}-#{$toolbar} {
     @include full-screen--toolbar;
+    background-color: rgba(0, 0, 0, 0.07); // fix for missing toolbar background
   }
 
   // active note share screen
@@ -167,30 +168,32 @@
         opacity: 1;
       }
 
-      .#{$note}-INgbqf {
+      .#{$note}-#{$color} {
+        padding: 6px 0 !important;
+        float: right;
 
         // hide all icons except archive and overflow
         .#{$remind},
         .#{$sharing},
-        .#{$color}-#{$change} {
-         display: none;
-        }
-
-        // invert icons to make black or dark gray
-        .#{$archive},
-        .#{$more} {
-          filter: invert(1);
-          opacity: 0.5;
-
-          &:hover {
-            opacity: 1;
-          }
+        .#{$change} {
+          display: none;
         }
       }
 
       // reminder
-      .#{$note}-#{$remind}-#{$popup}.#{$show} {
-        display: none;
+      .#{$note}-#{$remind}-#{$popup} {
+        float: left;
+        width: 18px;
+        height: 100%;
+        background-size: 18px 18px;
+        background-position: 50%;
+        border: 0;
+        padding: 0;
+
+        .IZ65Hb-zyxPWd-bVEB4e-V67aGc,
+        .IZ65Hb-zyxPWd-bVEB4e-VkLyEc {
+          display: none;
+        }
       }
 
       // share contacts
